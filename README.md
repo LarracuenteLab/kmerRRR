@@ -1,5 +1,5 @@
 # Documentation for kmerRRR: A k-mer based method for functional genomics in Repeat Rich Regions
-![image desc](readmefigs/kmerRRR_logo.png)
+![image desc](ReadMe/kmerRRR_logo.png)
 
 ### This documentation is for the kmerRRR version 0.1.0
 
@@ -56,7 +56,7 @@ alias myconda='source /path/to/your/directory/miniforge3/bin/activate'
 ```
 This way you can activate conda environment anytime just typing *"myconda"* in the terminal.
 
-![image desc](readmefigs/Fig1.png)
+![image desc](ReadMe/Fig1.png)
 >Fig1: Showing what the contents of the .bashrc file look like. The arrow shows where to put the **alias** to activate conda using command *“myconda”*
 
 Once, miniforge3 is installed and conda is activated move to step2
@@ -94,18 +94,17 @@ The directory tree looks like:
 
 ```
 kmerRRR_0.1.0
-    └── kmerRRR100
-        ├── example.codes
+    └── │example.codes
         ├── kmerRRR
         │   └── R
         ├── ReadMe
         └── test.files
 ```
 
-Then, go to the kmerRRR_0.1.0/kmerRRRR folder using:
+Then, go to the kmerRRRR folder using:
 
 ```code
-cd kmerRRR_0.1.0/kmerRRRR
+cd kmerRRRR
 ```
 
 >To install the kmerRRR program, first ensure that <span style="color: red;">*__venv__*</span> is activated, then follow the instructions below:
@@ -125,7 +124,7 @@ kmerRRR --help
 
 An output with all the programs available will be printed in the stdout.
 
-![image desc](readmefigs/Fig2.png)
+![image desc](ReadMe/Fig2.png)
 >Fig2. Showing the output of kmerRRR --help. All the programs and their description will be output in stdout
 
 If you see the above image, the program has been installed successfully and ready to use.
@@ -143,11 +142,11 @@ kmerRRR kmers_stat -seq "test.files/test.fasta" -k 31 -c 1 -n test.kmer -bed "te
 
 The sequence file in the _test.files_ folder is a dummy genome. The annotation of the genome is as follows:
 
-![image desc](readmefigs/test_genome_schematic.png)
+![image desc](ReadMe/test_genome_schematic.png)
 
 Here, *kmerRRR* is calling the tool to run kmers_stat script, *-seq* parameter for the **sequence file**, *-k* is the kmer size in **integer**, *-c* followed by **1** to ensure canonical kmer counting (**0** for non-canonical), *-n* for **path/name** of the program, *-bed* for **path/name** of the locus file, *--plot* to produce plots for mean and median per base k-mer ratio using the summary statistics, *-g* for genome size in megabase (Mb), *-t* for the number of threads to be used, *-jf* to use jellyfish, *-sw* for plotting with a sliding window of 100, and *-rr* to use a k-mer ratio of 1.0 to designate repetitive locus as calculated per base.
 
-![image desc](readmefigs/kmerRRR_workflow_readme.png)
+![image desc](ReadMe/kmerRRR_workflow_readme.png)
 
 >When you use path ensure you don’t stop at the folder <span style="color: orange;">*/path/to/your/directory*</span> but end with the name you want to give to your output files, e.g., <span style="color: orange;">*/path/to/your/directory*</span>/<span style="color: green">**test**</span>, here change the name from <span style="color: green">**test**</span> to anything you want.
 
@@ -474,13 +473,13 @@ We have added companion script pbr_suite to create BED format files for small RN
 
 The scripts can be found in:
 ```code 
-kmerRRR_0.1.0/kmerRRR_0.1.0/companion_scripts/pbr_suite.py
+kmerRRR_0.1.0/companion_scripts/pbr_suite.py
 ```
 Using the help command, you can look at all the options and program available.
 ```
 python3 companion_scripts/pbr_suite.py -h
 ```
-![image desc](readmefigs/pbr_suite_help.png)
+![image desc](ReadMe/pbr_suite_help.png)
 >All the options available for runnin _pbr_suite.py_ script
 
 Using the companion script, you can create BED format files for the regions that are locally unique and/or globally unique and change the output per base files to infer LUC for a new repeat ratio that is larger than that of used to generate the initial file.
