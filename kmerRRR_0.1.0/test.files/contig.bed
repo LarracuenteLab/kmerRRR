@@ -1,6 +1,0 @@
-contig	start	end	locus
-simulate_genome	1	10000	proximal_telomere
-simulate_genome	11000	230000	unique1
-simulate_genome	230001	388000	repeat
-simulate_genome	388001	588000	unique2
-simulate_genome	588001	598000	distal_telomere
