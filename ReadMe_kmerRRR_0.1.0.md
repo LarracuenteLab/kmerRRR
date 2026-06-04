@@ -52,7 +52,7 @@ nano ~/.bashrc
 ```
 Then write:
 ```code
-alias myconda=‘source /path/to/your/directory/miniforge3/bin/activate’
+alias myconda='source /path/to/your/directory/miniforge3/bin/activate'
 ```
 This way you can activate conda environment anytime just typing *"myconda"* in the terminal.
 
@@ -93,8 +93,8 @@ tar -xzvf kmerRRR.0.1.0.tar.gz
 The directory tree looks like:
 
 ```
-kmerRRR_0.0.4
-    └── kmerRRR_0.0.4
+kmerRRR_0.1.0
+    └── kmerRRR100
         ├── example.codes
         ├── kmerRRR
         │   └── R
@@ -138,7 +138,7 @@ If you want to submit the job as a SLURM using sbatch, information to do so can 
 
 #### Common usage
 ```code
-kmerRRR kmers_stat -seq "test.files/test.fasta" -k 31 -c 1 -n test.kmer -bed “test.files/contig.bed” --plot -g 200 -t 4 -jf -sw 100 -rr 1 
+kmerRRR kmers_stat -seq "test.files/test.fasta" -k 31 -c 1 -n test.kmer -bed "test.files/contig.bed" --plot -g 200 -t 4 -jf -sw 100 -rr 1 
 ```
 
 The sequence file in the _test.files_ folder is a dummy genome. The annotation of the genome is as follows:
@@ -199,7 +199,7 @@ At first run the *kmers_stat* program to get the global k-mers count and a summa
 Code Snippet
 
 ```code
-kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n “name” --plot
+kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n "name" --plot
 ```
 <span style="background-color: grey;">**-seq or --sequence_file**</span>: Path or name to the sequence file in FASTA or FASTQ format in gzipped or not
 
@@ -238,7 +238,7 @@ Now, you have the plots and summary statistics for targeted locus or contigs. Yo
 Code Snippet
 
 ```code
-kmerRRR get_mapq -bam <file.bam> -bed <file.bed> -n “name” -locus
+kmerRRR get_mapq -bam <file.bam> -bed <file.bed> -n "name" -locus
 ```
 <span style="background-color: grey;">**-bam or --bam_file**</span>: Path or name of the bam file
 
@@ -304,7 +304,7 @@ If you want to run the global kmer counts separately, use the *global_kmers* scr
 
 Code Snippet
 ```code
-kmerRRR global_kmers -seq <sequence.fasta> -k <size(int)> -c 1 -n “name” 
+kmerRRR global_kmers -seq <sequence.fasta> -k <size(int)> -c 1 -n "name" 
 ```
 <span style="background-color: grey;">**-seq or --sequence_file**</span>: Input genome assembly file (fasta or fastq format in gzipped or not)
 
@@ -436,7 +436,7 @@ A log file will be produced in the *results.examples/* folder. It is recommended
 To ensure that you produce a log file when running the program from stdout instead of printing it to stdout, either write the command as
 
 ```code
-kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n “name” -g 200 –plot &> /path/to/your/directory/output.log 
+kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n "name" -g 200 –plot &> /path/to/your/directory/output.log 
 ```
 **Or**,
 
@@ -465,7 +465,7 @@ module load gcc/11.2.0/b1 R/4.3.1/b1
 
 #Call the python script you want to use
 
-kmerRRR <program_name> -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -jf -t 16 -n “name” –plot -g 200 &> output.log
+kmerRRR <program_name> -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -jf -t 16 -n "name" –plot -g 200 &> output.log
 ```
 
 *<span style="color: orange;">/path/to/your/directory</span> is the directory where you have installed miniforge3 and venv, respectively. Ensure that <span style="color: orange;">/path/to/your/directory</span> is correct, otherwise the program won't run*
