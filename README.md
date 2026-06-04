@@ -8,7 +8,7 @@
 This program was created for python version __3.6__ and greater. To install the program, download the latest tar.gz file from [here](), or you can simply clone this repository then follow the instructions below to install it.
 
 ```code
-git clone https://github.com/Taurpio/kmerRRR_0.0.4
+git clone https://github.com/Taurpio/kmerRRR_0.1.0
 ```
 
 ><span style="color: red;">Caution: kmerRRR requires jellyfish to be installed previously to be able to run the scripts with jellyfish parameter. Using jellyfish is recommended for moderate to larger genomes for faster runtime.</span>
@@ -204,7 +204,7 @@ kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n "name" -
 
 <span style="background-color: grey;">**-bed or --bed_file**</span>: Path or name to the locus file in BED format with a locus column defining locus name (e.g., chromosome1	23500	123500	centromere)
 
-><span style="color: red;">When using the locus file please make sure to look at an example of the modified bed file (contig.bed) with an additional column for locus name inside the test.examples folder in kmerRRR_0.0.4. Just follow the first three column in a typical bed file (tab delimited) and the fourth column should be the name of the locus</span>
+><span style="color: red;">When using the locus file please make sure to look at an example of the modified bed file (contig.bed) with an additional column for locus name inside the test.examples folder in kmerRRR_0.1.0. Just follow the first three column in a typical bed file (tab delimited) and the fourth column should be the name of the locus</span>
 
 <span style="background-color: grey;">**-n or –name**</span>: Name for the output files
 
@@ -336,7 +336,7 @@ kmerRRR summary_stat -seq <sequence.fasta> -l <locus.bed> -gk <global_kmer.txt> 
 
 <span style="background-color: grey;">**-bed or --bed_file**</span>: Path or name to the locus file in BED format with a locus column defining locus name (e.g., chromosome1  235000 245000 centromere1)</span>
 
-<span style="color: red;">When using the locus file please make sure to look at an example of the modified bed file (contig.bed) with an additional column for locus name inside the test.examples folder in kmerRRR_0.0.4. Just follow the first three columns in a typical bed file (tab delimited) and the fourth column should be the name of the locus.</span>
+<span style="color: red;">When using the locus file please make sure to look at an example of the modified bed file (contig.bed) with an additional column for locus name inside the test.examples folder in kmerRRR_0.1.0. Just follow the first three columns in a typical bed file (tab delimited) and the fourth column should be the name of the locus.</span>
 
 <span style="background-color: grey;">**-gk or --global_kmer_file**</span>: Path or name to the global kmer file with kmer counts
 
