@@ -5,11 +5,11 @@ bamfile based on a per-base ratio file and user-defined cut-off
 values. It will read the per-base ratio file
 and identify positions that meet the cut-off criteria,
 then replace the MAPQ scores of reads in the bamfile meeting
-the criteria with MAPQL, for MAPQ Local adjusted scores. 
-The default MAPQL score is 40, but users can specify a different 
-values. Default cut-off values are set to 0.75 for mean and 
-0.85 for median. The output is a new bamfile that includes
-the manipulated MAPQL scores. 
+the criteria with MAPQL (for MAPQ Local adjusted scores). 
+The default MAPQL score is 40, but users can specify different 
+value. Default cut-off values for the per-base ratios are 
+set to 0.75 for mean and 0.85 for median. The output is a new 
+bamfile that includes the manipulated MAPQL scores. 
 
 User needs to provide: 
 1. a per-base ratio file

@@ -599,16 +599,16 @@ def main(args):
         print(f"\nGlobal kmers will be written to {global_kmer_outfile}\n")
 
     print("\nStarting kmer extraction...\n")
-    if not jellyfish:
+    
+    if jellyfish:
+        global_kmers_jf(sequence_file, canonical, kmer_size, genome_size, threads, global_kmer_outfile)
+    else:
         temp_file_names = contig_kmers(sequence_file, kmer_size, canonical, lkmer_out_file)
         print(f"\nTemporary local kmers is created as {lkmer_out_file}\n")
         for tmp_files in temp_file_names:
             os.remove(tmp_files)
         print(f"\nExtracting global kmers from local kmers...\n")
-    
-    if jellyfish:
-        global_kmers_jf(sequence_file, canonical, kmer_size, genome_size, threads, global_kmer_outfile)
-    else:
+        
         global_kmers_txt(lkmer_out_file, global_kmer_outfile)
         print(f"\nRemoving temporary local kmers file {lkmer_out_file}\n")
         os.remove(lkmer_out_file)

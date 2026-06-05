@@ -8,7 +8,7 @@ import subprocess
 
 # This function is to get the summary stats on the global kmers list
 # this is also a stand alone program that the user can use
-# to get the summary in std out or in a file
+# to report the summary in std out or in a file.
 def gkmer_info_txt(global_kmer_file):
     tmp_dict = {}
     with gzip.open(global_kmer_file, 'rt') as gkmer:
@@ -34,7 +34,7 @@ def gkmer_info_txt(global_kmer_file):
 
 # This function is to get the summary stats on the global kmers list
 # this is also a stand alone program that the user can use
-# to get the summary in std out or in a file
+# to report the summary in std out or in a file
 def gkmer_info_jf(global_kmer_file):
     if global_kmer_file.endswith(".jf"):
         print(f"\n {global_kmer_file} is a jellyfish output file")
