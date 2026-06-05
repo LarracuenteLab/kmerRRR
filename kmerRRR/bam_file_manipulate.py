@@ -8,7 +8,7 @@ then replace the MAPQ scores of reads in the bamfile meeting
 the criteria with MAPQL (for MAPQ Local adjusted scores). 
 The default MAPQL score is 40, but users can specify different 
 value. Default cut-off values for the per-base ratios are 
-set to 0.75 for mean and 0.85 for median. The output is a new 
+set to 1 for both mean and median. The output is a new 
 bamfile that includes the manipulated MAPQL scores. 
 
 User needs to provide: 
