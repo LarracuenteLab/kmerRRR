@@ -391,7 +391,7 @@ def per_base_ratio(sequence_file, lkmer_ratio_file, jf, global_kmer_file, canoni
                     else:
                         repetitive = 0
                         local_unique = 0
-                    ofile.write(f"{contig_name}\t{nt_pos + 1}\t{ratio}\t{mean_val}\t{median_val}\t{",".join(str(mode_val))}\t{max_val}\t{min_val}\t{repetitive}\t{local_unique}\n")
+                    ofile.write(f"{contig_name}\t{nt_pos + 1}\t{ratio}\t{mean_val}\t{median_val}\t{",".join(str(item) for item in mode_val)}\t{max_val}\t{min_val}\t{repetitive}\t{local_unique}\n")
     print(f"\nPer base kmer ratios written to {per_base_outfile}\n")
 
 def plotting_data(per_base_file, swindow, name_plot):
