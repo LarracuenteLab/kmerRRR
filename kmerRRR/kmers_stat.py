@@ -470,7 +470,7 @@ def per_base_ratio(sequence_file, lkmer_ratio_file, jf, global_kmer_file, canoni
                 start_pos = int(start_pos)
                 end_pos = int(end_pos)
             contig_name = contig_pos.split("#")[0]
-            print(f"\nStart coordinate: {start_pos}, End coordinate: {end_pos}\n")
+            print(f"\nStart coordinate: {start_pos + 1}, End coordinate: {end_pos}\n")
             if contig_name in genome:
                 sequence = genome[contig_name][start_pos:end_pos]
                 kmer_pos = defaultdict(list)
