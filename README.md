@@ -8,7 +8,7 @@
 This program was created for python version __3.6__ and greater. To install the program, download the latest tar.gz file from [here](), or you can simply clone this repository then follow the instructions below to install it.
 
 ```code
-git clone https://github.com/Taurpio/kmerRRR_0.1.0
+git clone https://github.com/LarracuenteLab/kmerRRR
 ```
 
 ><span style="color: red;">Caution: kmerRRR requires jellyfish to be installed previously to be able to run the scripts with jellyfish parameter. Using jellyfish is recommended for moderate to larger genomes for faster runtime.</span>
@@ -19,7 +19,7 @@ To install jellyfish locally, please use the instruction from jellyfish **[githu
 
 To install kmerRRR version 0.1.0, you will require miniforge3 and an active python virtual environment. Please follow the instruction below.
 
-If you already have miniforge3 and python virtual environment (venv) installed and running, you can go [here directly to use the kmerRRR](#3installing-kmerrrr-version-004-and-its-usage) 
+If you already have miniforge3 and python virtual environment (venv) installed and running, you can go [here directly to use the kmerRRR](#3installing-kmerrrr-version-010-and-its-usage) 
 
 ### Installing kmerRRR version 0.1.0
 
@@ -84,21 +84,23 @@ To use the kmerRRR tools make sure to <span style="color: red;">**activate conda
 
 ### 3.	Installing kmerRRR version 0.1.0 and its usage
 
-At first, untar the kmerRRR.0.1.0.tar.gz in the folder where it has been downloaded
+If you are not using git clone, use this[link](https://github.com/LarracuenteLab/kmerRRR) to download the latest kmerRRR.tat.gz file. At first, untar the kmerRRR.tar.gz in the folder where it has been downloaded
 
 ```code
-tar -xzvf kmerRRR.0.1.0.tar.gz
+tar -xzvf kmerRRR.tar.gz
 ```
 
 The directory tree looks like:
 
 ```
-kmerRRR_0.1.0
-    └── │example.codes
-        ├── kmerRRR
-        │   └── R
-        ├── ReadMe
-        └── test.files
+kmerRRR
+├── companion_scripts
+├── example.codes
+├── kmerRRR
+│   └── R
+├── kmerRRR.egg-info
+├── ReadMe
+└── test.files
 ```
 
 Then, go to the kmerRRRR folder using:
