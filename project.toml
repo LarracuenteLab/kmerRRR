@@ -7,6 +7,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "kmerRRR"
 version = "0.1.0"
+license = "MIT"
+license-file = "LICENSE"
 authors = [ { name = "Jabale Rahmat", email = "jrahmat@ur.rochester.edu" } ]
 description = "A k-mer based tool to enhance functional genomics in Repeat Reach Regions"
 dependencies = [ "numpy", "biopython", "scipy", "pysam", "matplotlib", "pyjellyfish" ]
