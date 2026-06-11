@@ -5,7 +5,7 @@
 
 >Anything in <span style="color: orange;"> */path/to/your/directory*</span> is a placeholder. Make sure to change them with the actual path of your desired directory
 
-This program was created for python version __3.6__ and greater. To install the program, download the latest tar.gz file from [here](), or you can simply clone this repository then follow the instructions below to install it.
+This program was created for python version __3.6__ and greater. To install the program, download the latest tar.gz file from [here](https://drive.google.com/drive/u/0/folders/1sj0YHRmjxQRF4j7ZsZzeuAMaKfa8czdD), or you can simply clone this repository then follow the instructions below to install it.
 
 ```code
 git clone https://github.com/LarracuenteLab/kmerRRR
@@ -84,7 +84,7 @@ To use the kmerRRR tools make sure to <span style="color: red;">**activate conda
 
 ### 3.	Installing kmerRRR version 0.1.0 and its usage
 
-If you are not using git clone, use this[link](https://github.com/LarracuenteLab/kmerRRR) to download the latest kmerRRR.tat.gz file. At first, untar the kmerRRR.tar.gz in the folder where it has been downloaded
+If you are not using git clone, use this [link](https://github.com/LarracuenteLab/kmerRRR) to download the latest kmerRRR.tat.gz file. At first, untar the kmerRRR.tar.gz in the folder where it has been downloaded
 
 ```code
 tar -xzvf kmerRRR.tar.gz
