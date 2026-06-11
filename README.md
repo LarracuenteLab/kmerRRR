@@ -84,7 +84,7 @@ To use the kmerRRR tools make sure to <span style="color: red;">**activate conda
 
 ### 3.	Installing kmerRRR version 0.1.0 and its usage
 
-If you are not using git clone, use this [link](https://github.com/LarracuenteLab/kmerRRR) to download the latest kmerRRR.tat.gz file. At first, untar the kmerRRR.tar.gz in the folder where it has been downloaded
+If you are not using git clone, use this [link](https://drive.google.com/drive/u/0/folders/1sj0YHRmjxQRF4j7ZsZzeuAMaKfa8czdD) to download the latest kmerRRR.tat.gz file. At first, untar the kmerRRR.tar.gz in the folder where it has been downloaded
 
 ```code
 tar -xzvf kmerRRR.tar.gz
