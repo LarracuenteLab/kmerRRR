@@ -13,9 +13,12 @@ from kmerRRR.gkmer_info import main as gkmer_info
 from kmerRRR.kmer_dump import main as kmer_dump
 from kmerRRR.plotting_data import main as plot_data
 from kmerRRR.create_bedgraph import main as create_bed
+from kmerRRR import __version__
 
 def main():
     parser = argparse.ArgumentParser(prog="kmerRRR")
+    #subcommand for version
+    parser.add_argument("-v", "--version", action="version", version=f"%(prog)s {__version__}", help= "Print version of kmerRRR")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # subcommand for kmers_stat
@@ -106,7 +109,8 @@ def main():
     parser_create_bed.add_argument("-sw", "--slide_window", type=int, default=10000, help="Sliding window for plotting per base ratio file, default is 10kb")
     parser_create_bed.add_argument("-n", "--name", required=True, help="Name or path of the output files")
     parser_create_bed.set_defaults(func=create_bed)
-    
+
+   
     # Calling args
     args = parser.parse_args()
     args.func(args)
