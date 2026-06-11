@@ -141,6 +141,7 @@ If you want to submit the job as a SLURM using sbatch, information to do so can 
 ```code
 kmerRRR kmers_stat -seq "test.files/test.fasta" -k 31 -c 1 -n test.kmer -bed "test.files/contig.bed" --plot -g 200 -t 4 -jf -sw 100 -rr 1 
 ```
+> To look at the kmerRRR version, type: ```kmerRRR -v #or kmerRRR --version```
 
 The sequence file in the _test.files_ folder is a dummy genome. The annotation of the genome is as follows:
 
