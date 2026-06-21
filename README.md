@@ -485,9 +485,9 @@ python3 companion_scripts/pbr_suite.py -h
 ![image desc](ReadMe/pbr_suite_help.png)
 >All the options available for runnin _pbr_suite.py_ script
 
-Using the companion script, you can create BED format files for the regions that are locus-unique and/or global-unique and change the output per base files to infer LUC for a new repeat ratio that is larger than that of used to generate the initial file.
+Using the companion script, you can create BED format files for the regions that are locus-unique and/or globally unique and change the output per base files to infer LUC for a new repeat ratio that is larger than that of used to generate the initial file.
 
-The BED format files can be used with samtools to extract sequences for a particular regions that overlaps with the locus-unique or global-unique regions which can then be visualized in IGV or can be used to quantify reads for small RNA-seq experiments that involve repetitive regions.
+The BED format files can be used with samtools to extract sequences for a particular regions that overlaps with the locus-unique or globally unique regions which can then be visualized in IGV or can be used to quantify reads for small RNA-seq experiments that involve repetitive regions.
 
 samtools command
 ```
