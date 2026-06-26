@@ -495,5 +495,7 @@ samtools view -@ 8 -bh -U <exclude.bam> -L <lunique.bed> input.bam -o output.bam
 ```
 In the abve command, bh ensures the output is a BAM formatted files with headers, U to output a BAM file without the regions specified in the BAM file, L specifies the path/name of the BED file, o to indicate the name or the path of the output BAM file with the reads that overlap the regions in the BED file.
 
+Check our preprint [here](https://doi.org/10.64898/2026.06.21.732238): Rahmat, J., Pham, T. M, and A.M. Larracuente. 2026. kmerRRR: A k-mer based tool for functional genomics in Repeat Rich Regions. BioRxiv 2026.06.21.732238; doi: https://doi.org/10.64898/2026.06.21.732238
+
 ### Acknowledgement
 We are thankful to Leila Lin for the kmerRRR logo and workflow figure and the members of the Larracuente lab for useful suggestions on kmerRRR.
