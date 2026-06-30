@@ -42,10 +42,14 @@ def parsing_ratio_file(per_base_ratio_file, cut_type):
             position_ctype[contig_name, position] = (ctype)
     return contig_positions, position_ctype
 
-def parsing_bamfiles(bamfile, per_base_ratio_file, cut_off, cut_type, old_mapq, new_mapq, output_bamfile):
-    seed_value = int.from_bytes(os.urandom(8), byteorder='big')
-    random.seed(seed_value)
-    print(f"Seed value used: {seed_value}")
+def parsing_bamfiles(bamfile, per_base_ratio_file, cut_off, cut_type, old_mapq, new_mapq, user_seed, user_seed_value, output_bamfile):
+    if not user_seed:
+        seed_value = int.from_bytes(os.urandom(8), byteorder='big')
+        random.seed(seed_value)
+        print(f"Seed value used: {seed_value}\n")
+    else:
+        seed_value = user_seed_value
+        print(f"User input seed value used: {seed_value}\n")
     total_reads = skipped_unmap = skipped_H = manipulated = high_score = not_manipulated = 0
     contig_positions, position_ctype = parsing_ratio_file(per_base_ratio_file, cut_type)
     if not contig_positions:
@@ -178,12 +182,20 @@ def main(args):
         print(f"User input MAPQ of {new_mapq} will be assigned\n")
     else:
         print(f"Default MAPQ of {new_mapq} will be used")
+    
+    seed_val = args.seed
+    user_seed = True if seed_val else False
+    user_seed_value = None if not user_seed else seed_val
 
     alternate_bamfile = True if args.alt_bam else False
     output_bamfile = f"{name}_manipulated.bam"
 
     print(f"Processing BAM file: {bamfile} with per base ratio file: {per_base_ratio} with cut off value: {cut_off} and cut off method: {cut_type} and with MAPQ cut-off: {old_mapq} and manipulated MAPQ: {new_mapq}\n")
-    parsing_bamfiles(bamfile, per_base_ratio, cut_off, cut_type, old_mapq, new_mapq, output_bamfile)
+    if user_seed:
+        print(f"User input seed value: {seed_val} will be used\n")
+    else:
+        print(f"INFO {datetime.datetime.now()}: User did not input seed value. Seed value will be generated\n")
+    parsing_bamfiles(bamfile, per_base_ratio, cut_off, cut_type, old_mapq, new_mapq, user_seed, user_seed_value, output_bamfile)
     print(f"Output BAM file created: {output_bamfile}")
 
     if alternate_bamfile:

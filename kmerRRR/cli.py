@@ -71,6 +71,7 @@ def main():
     parser_bam_file_manipulate.add_argument("-alt", "--alt_bam", action='store_true', help="To output a bamfile without contigs present in the locus file for future merge and use in the downstream analysis, default: False")
     parser_bam_file_manipulate.add_argument("--old_mapq", nargs='?', type=int, default=30, help= "Minimum MAPQ score required for manipulating the read. Reads with score below this will be manipulated, default: 30")
     parser_bam_file_manipulate.add_argument("--new_mapq", nargs='?', type=int, default=40, help= "Manipulated new MAPQL score, default: 40")
+    parser_bam_file_manipulate.add_argument("-sd", "--seed", type = int, help = "Seed value for sorting multimappers randomly")
     parser_bam_file_manipulate.set_defaults(func=bam_file_manipulate_main)
  
     # subcommand for get_mapq
