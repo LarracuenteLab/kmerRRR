@@ -32,7 +32,7 @@ To use the tool, you will be required to have miniforge3 installed and running. 
 wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O miniforge.sh
 ```
 
-Here, you are downloading miniforge for linux for 64 bits in the directory you are currently in and chaning the name of shell script (.sh) file to “miniforge.sh”.
+Here, you are downloading miniforge for linux for 64 bits in the directory you are currently in and changing the name of shell script (.sh) file to “miniforge.sh”.
 Run the shell script using the following (It is recommended to choose your scratch base as the path/name of the directory):
 
 ```code
@@ -161,9 +161,9 @@ kmerRRR -h
 
 *kmers_stat*: To extract global k-mer counts and to calculate summary statistics from a bed file with locus information.
 
-*get_mapq*: To extract mapq scores from bamfile for specific contigs
+*get_mapq*: To extract mapq scores from BAMfile for specific contigs
 
-*bam_file_manipulate*: To manipulate the bamfile mapq scores either using mean or median per base kmer ratio for specific contigs/chromosomes
+*bam_file_manipulate*: To manipulate the BAMfile mapq scores either using mean or median per base kmer ratio for specific contigs/chromosomes
 
 *gkmer_info*: To get the stat report from global k-mer databse, for example, number of singletons, distinct k-mers, and max k-mer with its count
 
@@ -233,16 +233,16 @@ kmerRRR kmers_stat -seq <sequence.fasta> -bed <locus.bed> -c 1 -k 61 -n "name" -
 
 This will output a *{name}*_global_kmers.txt file containing the kmers and their counts in a tab delimited file, a *(name)*_kmer_ratio.txt and *{name}*_per_base_ratio.txt for local/global kmer counts and per base kmer ratio for each locus and their respective contigs/chromosomes, respectively and also if user wants *{name}*_{contigName}.png bar plots of per base k-mer ratio for each contig. If jellyfish option was used, the program will output a *{name}*_global_kmers.jf file containing the k-mers, their counts, and information in jellyfish data structure. To dump the k-mers into a .txt.gz file use the *kmer_dump* program or you can use the jellyfish dump as suggested in their [documentation](https://github.com/gmarcais/Jellyfish).
 
-2. Getting MAPQ scores from bamfile.
+2. Getting MAPQ scores from BAMfile.
 
-Now, you have the plots and summary statistics for targeted locus or contigs. You can use the default values of either mean (default option) or median to manipulate the bamfile then go to step 3, or if you want to see the distribution of MapQ and then decide the cutoff value and type of statistics to use to manipulate the bamfile, you can use the *get_mapq* program to fetch the MAPQ scores either for the whole contig or for the interested locus.
+Now, you have the plots and summary statistics for targeted locus or contigs. You can use the default values of either mean (default option) or median to manipulate the BAMfile then go to step 3, or if you want to see the distribution of MapQ and then decide the cutoff value and type of statistics to use to manipulate the BAMfile, you can use the *get_mapq* program to fetch the MAPQ scores either for the whole contig or for the interested locus.
 
 Code Snippet
 
 ```code
 kmerRRR get_mapq -bam <file.bam> -bed <file.bed> -n "name" -locus
 ```
-<span style="background-color: grey;">**-bam or --bam_file**</span>: Path or name of the bam file
+<span style="background-color: grey;">**-bam or --bam_file**</span>: Path or name of the BAM file
 
 <span style="background-color: grey;">**-bed or –bed_file**</span>: Path or name of the bed file containing locus information
 
@@ -254,13 +254,13 @@ kmerRRR get_mapq -bam <file.bam> -bed <file.bed> -n "name" -locus
 
 -sw or --slide_window (**default is 10kb**): Window size to use for plotting mean and median for positions from per base ratio file output 
 
-This will produce a *{name}*_MapQ.txt file which will be a tab delimited file containing information about targeted contigs and their MapQ scores for the position available in the bamfile. If plot is chose, separate barplots for each contig with their MAPQ score will be generated
+This will produce a *{name}*_MapQ.txt file which will be a tab delimited file containing information about targeted contigs and their MapQ scores for the position available in the BAMfile. If plot is chose, separate barplots for each contig with their MAPQ score will be generated
 
-><span style="color: lightblue;">**If the bamfile is not indexed, i.e., the index file *(.bai)* is not available in the same folder, the script will generate an index file, which will be removed at the end.</span>
+><span style="color: lightblue;">**If the BAMfile is not indexed, i.e., the index file *(.bai)* is not available in the same folder, the script will generate an index file, which will be removed at the end.</span>
 
-3. Manipulating the bamfile with locus-based summary statistics
+3. Manipulating the BAMfile with locus-based summary statistics
 
-Following the *kmers_stat* script you will want to run *bam_file_manipulate* script to manipulate the bamfile. 
+Following the *kmers_stat* script you will want to run *bam_file_manipulate* script to manipulate the BAMfile. 
 
 Code Snippet
 
@@ -273,7 +273,7 @@ kmerRRR bam_file_manipulate -pbr <per.base.ratio.file.txt> -bam <file.bam> -n �
 
 <span style="background-color: grey;">**-n or –name**</span>: Path or name of the program
 
--cut or --cut_off (default values is **0.75** for **mean** and **0.85** for **median**): Cut-off value to manipulate the bamfile
+-cut or --cut_off (default values is **0.75** for **mean** and **0.85** for **median**): Cut-off value to manipulate the BAMfile
 
 -ctype or --cut_type (default is mean): The type of summary statistic to use
 
@@ -281,13 +281,13 @@ kmerRRR bam_file_manipulate -pbr <per.base.ratio.file.txt> -bam <file.bam> -n �
 
 --new_mapq (default is 40): This is the new MAPQ score that will be assigned to the read. The default value is 40 (which is applicable for most of the program). However, if a user uses a different mapping tool and wants to manipulate the reads with a different number to ensure the reads that have been manipulated and for filtering the reads for downstream analysis, the user can use this parameter to do so. 
 
--alt or --alt_bam (**default is False**) : Whether the user wants to output a bamfile without contigs present in the locus file for future merging and use.
+-alt or --alt_bam (**default is False**) : Whether the user wants to output a BAMfile without contigs present in the locus file for future merging and use.
 
-This will output two bam files:- *{name}*_manipulated.bam and *{name}*_alternate.bam. The alternate.bam files will have the information for the reads for the contigs that were not targeted or used for manipulating based on the kmer ratio. The manipulated.bam file will have the reads for the contigs which were targeted using the kmer ratio.
+This will output two BAM files:- *{name}*_manipulated.bam and *{name}*_alternate.bam. The alternate.bam files will have the information for the reads for the contigs that were not targeted or used for manipulating based on the kmer ratio. The manipulated.bam file will have the reads for the contigs which were targeted using the kmer ratio.
 
 >If you do not want the alternate.bam file, simply avoid writing the parameter -alt or --alt_bam parameter.
 
-For downstream analysis, if you want to have all the reads regardless of the target contigs, you can merge the two bamfiles output from _bam_file_manipulate_
+For downstream analysis, if you want to have all the reads regardless of the target contigs, you can merge the two BAMfiles output from _bam_file_manipulate_
 
 >You will require to have samtools installed in your system
 
@@ -295,7 +295,7 @@ For downstream analysis, if you want to have all the reads regardless of the tar
 samtools merge -@ <threads> *{name}*_manipulated.bam *{name}*_alternate.bam -o *{name}*_merged.bam
 ```
 
-Now, this bamfile should be ready for downstream analysis.
+Now, this BAMfile should be ready for downstream analysis.
 
 #### Additional scripts
 >The ones that are in bold and highlighted in grey are required options
@@ -413,7 +413,7 @@ This will output a .pdf file containing the plots of k-mer mean and median ratio
 
 6. Creating bedgraph format output files
 
-This script will generate bedgraph format output file that can be used to visualize k-mer ratio distribution from per base ratio file and/or visulaizing local mappability before and after manipulating bam files from MAPQ files output from _getting_mapq_ program.
+This script will generate bedgraph format output files that can be used to visualize k-mer ratio distribution from per base ratio file and/or visulaizing locus mappability before and after manipulating BAM files from MAPQ files output from _getting_mapq_ program.
 
 ```code
 kmerRRR create_bedgraph -pbr <per_base_ratio.txt> --mapq <mapq_file.txt> -n <name> -sw 10000
