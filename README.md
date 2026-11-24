@@ -297,6 +297,8 @@ samtools merge -@ <threads> *{name}*_manipulated.bam *{name}*_alternate.bam -o *
 
 Now, this BAMfile should be ready for downstream analysis.
 
+<span style='color: red'> Warning: Do not deleted the original BAMfiles if required for further downstream analysis and for records.</span>
+
 #### Additional scripts
 >The ones that are in bold and highlighted in grey are required options
 
